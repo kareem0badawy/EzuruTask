@@ -10,5 +10,6 @@ use Illuminate\Support\Facades\Route;
 Route::namespace('API')->group(function () {
     Route::get('v2/sortedby/stars','PopularRepoController@index');
     Route::get('v2/topRepo/','PopularRepoController@topRepo');
+    Route::get('v2/filterbylanguage/','PopularRepoController@filterbylanguage');
     Route::get('v2/filterbydate/','PopularRepoController@filterByDate');
 });

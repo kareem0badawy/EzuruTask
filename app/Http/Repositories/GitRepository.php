@@ -22,18 +22,22 @@ class GitRepository implements GitRepositoryInterface
 
     public function getSortedByNumberOfStars() : object
     {
-        return $this->fetchDataApi($this->client->request('GET', '?q=sort=stars&order=asc'));
+        return $this->fetchDataApi($this->client->request('GET', '?q=stars:>1&sort=stars'));
     }
     
     public function getTopRepository($length) : object
     {
-        // https://api.github.com/search/repositories?q=created:>2019-01-10&sort=stars&order=asc 
-        return $this->fetchDataApi($this->client->request('GET', '?q=sort=stars&order=desc&per_page='.$length));
+        return $this->fetchDataApi($this->client->request('GET', '?q=stars:>1&sort=stars&per_page='.$length));
+    }
+
+    public function getFilterByProgrammingLanguageRepository($language) : object
+    {
+        return $this->fetchDataApi($this->client->request('GET', '?q=language:'.$language.'&sort=stars&order=desc'));
     }
     
     public function getFilterByDateRepository($date) : object
     {
-        return $this->fetchDataApi($this->client->request('GET', '?q=created:>'.$date.'&sort=stars&order=desc'));
+        return $this->fetchDataApi($this->client->request('GET', '?q=created:'.$date.'&sort=stars&order=desc'));
     }
 
 }

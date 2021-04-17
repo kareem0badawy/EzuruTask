@@ -11,10 +11,30 @@ Simple integration with Github API
 ## Getting Started | Installing
 
 ```
-    composer install
+composer install
 ```
+```
+php artisan serv
+```
+
 ## End Point
 
-* [Sorted-By-Stars](v2/sortedby/stars)
-* [Top-Repo](v2/topRepo/)
-* [Filter-By-Date](v2/filterbydate/)
+* Sorted-By-Stars 
+```
+http://127.0.0.1:8000/api/v2/sortedby/stars
+```
+
+* Top-Repo
+```
+http://127.0.0.1:8000/api/v2/topRepo?length=4
+```
+
+* Filter-By-ProgrammingLanguage
+```
+http://127.0.0.1:8000/api/v2/filterbylanguage?language=php
+```
+
+* Filter-By-Date
+```
+http://127.0.0.1:8000/api/v2/filterbydate?date=2020-01-10
+```

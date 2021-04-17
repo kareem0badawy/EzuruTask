@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\DateFilterRequest;
 use GuzzleHttp\Exception\GuzzleException;
+use App\Http\Requests\LanguageFilterRequest;
 use App\Http\Repositories\GitRepositoryInterface;
 
 class PopularRepoController extends Controller
@@ -30,6 +31,15 @@ class PopularRepoController extends Controller
     {
         try {
             return $this->repository->getTopRepository($request->length);
+        } catch (GuzzleException $e) {
+            return response()->json(['message'=>'Data is not found or has expired.'],422);
+        }
+    }
+
+    public function filterbylanguage(LanguageFilterRequest $request)
+    {
+        try {
+            return $this->repository->getFilterByProgrammingLanguageRepository($request->language);
         } catch (GuzzleException $e) {
             return response()->json(['message'=>'Data is not found or has expired.'],422);
         }
