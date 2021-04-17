@@ -14,7 +14,12 @@ Simple integration with Github API
 composer install
 ```
 ```
-php artisan serv
+php artisan serve
+```
+
+# Postman Collection
+```
+https://www.getpostman.com/collections/3d955e412144b4bbe28e
 ```
 
 ## End Point
@@ -38,3 +43,4 @@ http://127.0.0.1:8000/api/v2/filterbylanguage?language=php
 ```
 http://127.0.0.1:8000/api/v2/filterbydate?date=2020-01-10
 ```
+
